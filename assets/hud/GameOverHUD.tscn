@@ -1,38 +1,64 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf"
+[ext_resource path="res://assets/hud/Windows_XP_BSOD.png" type="Texture" id=1]
 
-[sub_resource type="DynamicFont" id=2]
-size = 60
-outline_size = 2
-outline_color = Color( 0.137255, 0.137255, 0.137255, 1 )
-font_data = SubResource( 1 )
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0.509804, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://assets/fonts/connection_ii/ConnectionII.otf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = SubResource( 2 )
 
 [node name="GameOverHUD" type="Control"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -520.0
-margin_top = -300.0
-margin_right = 504.0
-margin_bottom = 300.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.297
-anchor_top = 0.387
-anchor_right = 0.719
-anchor_bottom = 0.507
-margin_left = -0.128021
-margin_top = -0.200012
-margin_right = -0.256042
-margin_bottom = -0.200012
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-bbcode_text = "GAME OVER!"
-text = "GAME OVER!"
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 520.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "A problem has been detected and fetch has been shutdown to prevent futher battery charge decay. The problem seems to be caused by the following file: BATTERY.SYS
+
+If this is the first time you've seen this error screen, charge fetch and restart it. If this screen presists throw the whole robot away.
+
+Check to make sure any newly installed harware or software manufacturer for any fetch updates you might need.
+
+Technical infromation:
+
+*** STOP: 0x00069420 (0xBDD6972C42, 0x00000540,0xFHGKD500,0X000022)
+
+*** BATTERY.SYS - Address KDOADO base at 3459FSD, DateStamp 549498U
+"
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

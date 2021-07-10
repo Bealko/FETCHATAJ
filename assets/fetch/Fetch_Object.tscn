@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fetch/Fetch_Behaviour.gd" type="Script" id=1]
 [ext_resource path="res://assets/fetch/Fetch_Material.tres" type="Material" id=2]
 [ext_resource path="res://assets/fetch/HolderSpikes_Object.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/hud/Fetch_HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/fetch/TowingSpikes_Behaviour.gd" type="Script" id=5]
+[ext_resource path="res://assets/fetch/sound/fetch_loop.wav" type="AudioStream" id=6]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Fetch_Robot"
@@ -23,6 +25,9 @@ surfaces/0 = {
 radius = 0.349083
 height = 0.328749
 
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.159418, 0.152763, 0.183308 )
+
 [node name="Fetch" type="KinematicBody"]
 script = ExtResource( 1 )
 
@@ -39,3 +44,33 @@ shape = SubResource( 2 )
 
 [node name="HolderSpikes" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.005, 0.102346 )
+script = ExtResource( 5 )
+
+[node name="Area" type="Area" parent="HolderSpikes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.374894, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="HolderSpikes/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.09527e-09, 0.20801, 0.0697218 )
+shape = SubResource( 3 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.965542, -0.0109724, -0.260014, 0.0347843, 0.995587, 0.0871557, 0.25791, -0.093197, 0.961663, 0.162771, 0.249418, -0.307874 )
+light_color = Color( 0.290196, 0, 1, 1 )
+light_energy = 4.0
+spot_range = 4.0
+spot_angle = 30.0
+
+[node name="SpotLight2" type="SpotLight" parent="."]
+transform = Transform( 0.965542, 0.0109724, 0.260014, -0.0347843, 0.995587, 0.0871557, -0.25791, -0.093197, 0.961663, -0.158229, 0.252131, -0.287777 )
+light_color = Color( 0.290196, 0, 1, 1 )
+light_energy = 4.0
+spot_range = 4.0
+spot_angle = 30.0
+
+[node name="MotorSounds" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="IndicationSounds" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="body_entered" from="HolderSpikes/Area" to="HolderSpikes" method="_on_Area_body_entered"]
+[connection signal="body_exited" from="HolderSpikes/Area" to="HolderSpikes" method="_on_Area_body_exited"]

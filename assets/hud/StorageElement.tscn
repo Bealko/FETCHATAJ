@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/hud/defaultFont.tres" type="DynamicFont" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 18
+outline_size = 2
+outline_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+font_data = SubResource( 1 )
+
+[node name="StorageElement" type="Label"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 1 )
+text = "[.storage]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="terminalBlocks" type="Label" parent="."]
+self_modulate = Color( 1, 0.733333, 0.219608, 1 )
+margin_top = 40.0
+margin_right = 152.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "[.terBlocks=10]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lostTools" type="Label" parent="."]
+self_modulate = Color( 0.686275, 1, 0.219608, 1 )
+margin_top = 72.0
+margin_right = 137.0
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "[.lostTools=3]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="boxes" type="Label" parent="."]
+self_modulate = Color( 0.219608, 0.376471, 1, 1 )
+margin_top = 104.0
+margin_right = 122.0
+margin_bottom = 128.0
+custom_fonts/font = SubResource( 2 )
+text = "[.boxes=3]"
+__meta__ = {
+"_edit_use_anchors_": false
+}

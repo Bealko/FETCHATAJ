@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/items/component/ComponentModel.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/items/component/ComponentMaterial.tres" type="Material" id=2]
+[ext_resource path="res://assets/items/component/Collectable_Behaviour.gd" type="Script" id=3]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.562978
+
+[node name="ComponentModel" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Component" parent="." index="0"]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0 )
+material/0 = ExtResource( 2 )
+
+[node name="Area" type="Area" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+shape = SubResource( 1 )

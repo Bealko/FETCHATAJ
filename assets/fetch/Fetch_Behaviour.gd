@@ -5,6 +5,9 @@ extends KinematicBody
 export var gravity = Vector3.DOWN * 10
 export var speeds = [4.0, 6.0, 10.0]
 export var drainSpeeds = [0.01, 0.03, 0.06]
+
+onready var motorAudioPlayer = $MotorSounds
+onready var indicationAudioPlayer = $IndicationSounds
 var speedPositions = [Vector2(104,32),Vector2(136,64),Vector2(96,96)]
 var speedIndex = 0
 var speed : float = 0
@@ -13,32 +16,65 @@ export var rot_speed = 0.85
 export var batteryLevel : float = 100.0
 
 
-export var isTowingObject : bool = false
-
+export var isOccupied : bool = false
+var rotating : bool = false
 
 var velocity = Vector3.ZERO
 
 var fetchHud
 
-func _ready():
+onready var lowBatterySound = preload("res://assets/fetch/sound/low_battery.wav")
+
+
+
+func _ready() -> void:
 	
 	fetchHud = $Fetch_HUD
 
 
 # Called when the node enters the scene tree for the first time.
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	velocity += gravity * delta
 	get_input(delta)
 	velocity = move_and_slide(velocity, Vector3.UP)
 
-func _process(delta):
+func _process(delta) -> void:
 	speed = speeds[speedIndex]
 	$Fetch_HUD/MovementModeIndicator/Indicator.rect_position = speedPositions[speedIndex]
 	$Fetch_HUD/BatteryBar/BatteryPercent.text = str(stepify(batteryLevel,0.1),"%")
 	$Fetch_HUD/BatteryBar.value = batteryLevel
+	
+
+	checkBatteryLevel()
+	
+	
+	if(velocity.length() > 1):
+		motorAudioPlayer.play()
+	elif(velocity.length() < 1):
+		motorAudioPlayer.stop()
 
 
-func get_input(delta):
+func checkBatteryLevel() -> void:
+	
+	if batteryLevel >= 100:
+		batteryLevel = 100
+	
+	if batteryLevel <= 0:
+		self.call_deferred("free")
+		get_tree().change_scene("res://assets/hud/GameOverHUD.tscn")
+	
+	if batteryLevel < 25:
+		if !indicationAudioPlayer.is_playing():
+			indicationAudioPlayer.stream = lowBatterySound
+			indicationAudioPlayer.play()
+	if batteryLevel > 25:
+		if indicationAudioPlayer.is_playing():
+			indicationAudioPlayer.stop()
+
+
+
+
+func get_input(delta) -> void:
 	var vy = velocity.y
 	velocity = Vector3.ZERO
 	
@@ -51,13 +87,18 @@ func get_input(delta):
 		if Input.is_action_pressed("forward"):
 			velocity += -transform.basis.z * speed
 			batteryLevel -= drainSpeeds[speedIndex]
+			
 		if Input.is_action_pressed("back"):
 			velocity += transform.basis.z * speed
 			batteryLevel -= drainSpeeds[speedIndex]
+			
 		if Input.is_action_pressed("right"):
-			batteryLevel -= drainSpeeds[speedIndex]
+			batteryLevel -= 0.01
 			rotate_y(-rot_speed * delta)
+			
 		if Input.is_action_pressed("left"):
-			batteryLevel -= drainSpeeds[speedIndex]
+			batteryLevel -= 0.01
 			rotate_y(rot_speed * delta)
+			
 	velocity.y = vy
+

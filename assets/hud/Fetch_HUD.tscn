@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/hud/BatteryBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/hud/MovementModeIndicator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/hud/StorageElement.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/hud/PartStatus.tscn" type="PackedScene" id=4]
 
 [node name="Fetch_HUD" type="Control"]
 anchor_right = 1.0
@@ -28,3 +30,7 @@ anchor_top = 0.626333
 anchor_right = 0.325875
 anchor_bottom = 0.680333
 text = "[.motors.mode]"
+
+[node name="StorageElement" parent="." instance=ExtResource( 3 )]
+
+[node name="PartStatus" parent="." instance=ExtResource( 4 )]
