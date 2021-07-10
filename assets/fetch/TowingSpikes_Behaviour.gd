@@ -18,6 +18,7 @@ func _process(delta):
 				attachedBody.transform.origin.x = get_parent().transform.origin.x
 				attachedBody.transform.origin.z = get_parent().transform.origin.z	
 				attachedBody.rotation.y = get_parent().rotation.y
+				attachedBody.get_node("Base_Collider").disabled = false
 	
 
 
@@ -32,9 +33,11 @@ func _input(event):
 		print("Now towing ",attachedBody)
 	if(Input.is_action_just_pressed("contraption_action_2") && attachedBody != null):
 		get_parent().get_node("Fetch_HUD/PartStatus/TowingSpikes").text = "[.twgSpik=down]"
+		attachedBody.get_node("Base_Collider").disabled = true
 		print("Now releasing ",attachedBody)
 		isTowing = false
 		attachedBody = null
+		
 
 
 
