@@ -1,0 +1,8 @@
+F:\Godot Projects\FETCHATAJ\.mono\temp\bin\Debug\FETCHATAJ.dll
+F:\Godot Projects\FETCHATAJ\.mono\temp\bin\Debug\FETCHATAJ.pdb
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.csproj.AssemblyReference.cache
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.AssemblyInfoInputs.cache
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.AssemblyInfo.cs
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.csproj.CoreCompileInputs.cache
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.dll
+F:\Godot Projects\FETCHATAJ\.mono\temp\obj\Debug\FETCHATAJ.pdb

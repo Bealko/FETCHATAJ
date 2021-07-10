@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\Godot Projects\\FETCHATAJ\\FETCHATAJ.csproj": {}
+  },
+  "projects": {
+    "F:\\Godot Projects\\FETCHATAJ\\FETCHATAJ.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\Godot Projects\\FETCHATAJ\\FETCHATAJ.csproj",
+        "projectName": "FETCHATAJ",
+        "projectPath": "F:\\Godot Projects\\FETCHATAJ\\FETCHATAJ.csproj",
+        "packagesPath": "C:\\Users\\Super\\.nuget\\packages\\",
+        "outputPath": "F:\\Godot Projects\\FETCHATAJ\\.mono\\temp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Super\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

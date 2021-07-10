@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf"
+
+[resource]
+size = 25
+outline_size = 2
+outline_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+font_data = SubResource( 1 )

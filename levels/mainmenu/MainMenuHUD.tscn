@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/mainmenu/MainMenuFont_2.tres" type="DynamicFont" id=1]
+[ext_resource path="res://levels/mainmenu/MainMenu_Behaviour.gd" type="Script" id=2]
+[ext_resource path="res://levels/mainmenu/Main Menu Loop.wav" type="AudioStream" id=3]
+[ext_resource path="res://levels/mainmenu/StyleboxMenu.tres" type="StyleBox" id=4]
+[ext_resource path="res://levels/mainmenu/StyleboxMenuHover.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 70
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="MainMenuHUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.104313
+anchor_top = 0.0936667
+anchor_right = 0.896172
+anchor_bottom = 0.226667
+margin_left = -34.816
+margin_top = -0.200005
+margin_right = 38.3199
+rect_scale = Vector2( 0.92, 1 )
+rect_pivot_offset = Vector2( 434.783, 40 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[shake rate=10 level=10][color=aqua]FETCH[/color] ME IF YOU CAN[/shake]"
+text = "FETCH ME IF YOU CAN"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="NewGame_Button" type="Button" parent="."]
+anchor_left = 0.062
+anchor_top = 0.547
+anchor_right = 0.437
+anchor_bottom = 0.653
+margin_left = 0.511997
+margin_top = -0.200043
+margin_right = 0.511993
+margin_bottom = 0.199951
+rect_pivot_offset = Vector2( 344, 104 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+text = "NEW GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options_Button" type="Button" parent="."]
+anchor_left = 0.062
+anchor_top = 0.667
+anchor_right = 0.437
+anchor_bottom = 0.773
+margin_left = 0.511997
+margin_top = -0.200043
+margin_right = 0.511993
+margin_bottom = 0.199951
+custom_styles/hover = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+text = "OPTIONS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitGame_Button" type="Button" parent="."]
+anchor_left = 0.062
+anchor_top = 0.8
+anchor_right = 0.437
+anchor_bottom = 0.907
+margin_left = 0.511997
+margin_right = 0.511993
+margin_bottom = -0.200012
+custom_styles/hover = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = ExtResource( 1 )
+text = "EXIT GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="NewGame_Button" to="." method="_on_NewGame_Button_pressed"]
+[connection signal="pressed" from="ExitGame_Button" to="." method="_on_ExitGame_Button_pressed"]

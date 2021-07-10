@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://levels/hall/AJHall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fetch/Fetch_Object.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/cart/Cart_Object.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Environment" id=1]
+fog_color = Color( 1, 1, 1, 1 )
+glow_enabled = true
+
+[node name="HallLevel" type="WorldEnvironment"]
+environment = SubResource( 1 )
+
+[node name="AJLevel" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 6.176, 0 )
+
+[node name="Fetch" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.502987, 3.00774, 5.25539 )
+
+[node name="Camera" type="Camera" parent="Fetch"]
+transform = Transform( 1, 0, 0, 0, 0.960284, 0.279025, 0, -0.279025, 0.960284, 0, 1.56845, 2.95195 )
+
+[node name="Cart" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8542, 3.46148, 0 )
+
+[node name="Cart2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39664, 2.80747, -1.5096 )
+
+[node name="Cart3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2316, 3.93483, 0 )
+
+[node name="Cart4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4953, 3.29493, 0 )
+
+[node name="Lights" type="Spatial" parent="."]
+transform = Transform( 0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 4.88282, 0 )
+
+[node name="SpotLight2" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -29.6875, 5.9901, 5.95729 )
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight3" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -5.87518, 5.9901, 5.95729 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight4" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -12.6808, 5.9901, -15.8472 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight5" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -30.4198, 5.9901, -15.8472 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight6" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -30.4198, 5.99009, -41.2265 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight7" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -30.4198, 5.99009, -76.8165 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="UnderLight" type="SpotLight" parent="Lights"]
+transform = Transform( -1.25, -1.09278e-07, -5.29396e-22, -4.77671e-15, 5.46392e-08, -1.25, 1.09278e-07, -1.25, -5.46392e-08, -1.73652, -17.4525, -41.2265 )
+light_energy = 0.25
+light_bake_mode = 2
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 174.2
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight9" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -1.73652, 5.99009, -76.8165 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight10" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -30.4198, 5.99009, -106.512 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187
+
+[node name="SpotLight11" type="SpotLight" parent="Lights"]
+transform = Transform( 1.25, 0, 0, 0, -5.46392e-08, 1.25, 0, -1.25, -5.46392e-08, -1.75956, 6.01875, -106.505 )
+light_bake_mode = 2
+shadow_enabled = true
+shadow_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+shadow_contact = 0.5
+shadow_reverse_cull_face = true
+spot_range = 80.0
+spot_angle = 85.0
+spot_angle_attenuation = 1.93187

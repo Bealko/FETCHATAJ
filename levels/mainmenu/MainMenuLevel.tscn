@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://levels/mainmenu/MainMenuHUD.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/mainmenu/MainMenuRoom.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/cart/Cart_Object.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 1, 1, 1, 1 )
+sky_horizon_color = Color( 0.823529, 0.592157, 0.0431373, 1 )
+sky_energy = 0.5
+sun_latitude = 5.0
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 2 )
+
+[node name="MainMenuRoomModel" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="Cart" parent="MainMenuRoomModel" instance=ExtResource( 3 )]
+transform = Transform( -0.429298, 0, -0.903163, 0, 1, 0, 0.903163, 0, -0.429298, 3.13476, -0.0133476, 0.102526 )
+mode = 1
+sleeping = true
+script = null
+
+[node name="Cart2" parent="MainMenuRoomModel" instance=ExtResource( 3 )]
+transform = Transform( -0.958899, 0, -0.283748, 0, 1, 0, 0.283748, 0, -0.958899, 3.05731, -0.0133483, -1.51726 )
+mode = 1
+sleeping = true
+script = null
+
+[node name="Cart3" parent="MainMenuRoomModel" instance=ExtResource( 3 )]
+transform = Transform( 0.919314, 0, -0.393525, 0, 1, 0, 0.393525, 0, 0.919314, 0.479122, -0.0133479, 1.52794 )
+mode = 1
+sleeping = true
+script = null
+
+[node name="Cart4" parent="MainMenuRoomModel" instance=ExtResource( 3 )]
+transform = Transform( 0.213111, -0.0101694, -0.976975, 0.0476643, 0.998863, -8.5956e-09, 0.975865, -0.0465669, 0.213354, 0.353725, 1.21335, 1.42054 )
+mode = 1
+sleeping = true
+script = null
+
+[node name="SpotLight" type="SpotLight" parent="MainMenuRoomModel"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.04954, 0 )
+shadow_enabled = true
+shadow_reverse_cull_face = true
+spot_range = 8.1
+
+[node name="MainMenuHUD" parent="." instance=ExtResource( 1 )]
+self_modulate = Color( 1, 1, 1, 0.313726 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.945177, 0.0316906, -0.325017, 0, 0.99528, 0.0970444, 0.326558, -0.0917242, 0.940716, -2.11503, 3.17028, 4.90037 )

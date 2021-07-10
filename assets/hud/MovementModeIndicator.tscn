@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/hud/defaultFont.tres" type="DynamicFont" id=1]
+
+[node name="MovementModeIndicator" type="Label"]
+anchor_left = -0.156
+anchor_top = -0.027
+anchor_right = 0.154
+anchor_bottom = 0.027
+margin_left = -0.255997
+margin_top = 0.200001
+margin_right = 0.303986
+margin_bottom = -0.200001
+custom_fonts/font = ExtResource( 1 )
+text = "[.MOTORS.MODE]"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slow_Label" type="Label" parent="."]
+self_modulate = Color( 0.952941, 1, 0.490196, 1 )
+anchor_top = 0.25
+anchor_bottom = 0.25
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 104.0
+margin_bottom = 56.0
+custom_fonts/font = ExtResource( 1 )
+text = "SLOW"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mid_Label" type="Label" parent="."]
+self_modulate = Color( 0.6, 1, 0.490196, 1 )
+anchor_top = 0.25
+anchor_bottom = 0.25
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 123.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 1 )
+text = "MEDIUM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fast_Label" type="Label" parent="."]
+self_modulate = Color( 0.494118, 0.490196, 1, 1 )
+anchor_top = 0.25
+anchor_bottom = 0.25
+margin_left = 8.0
+margin_top = 88.0
+margin_right = 88.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 1 )
+text = "FAST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Label" parent="."]
+anchor_top = 0.25
+anchor_bottom = 0.25
+margin_left = 96.0
+margin_top = 88.0
+margin_right = 136.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 1 )
+text = "<-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
