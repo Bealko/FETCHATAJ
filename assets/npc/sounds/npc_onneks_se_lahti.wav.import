@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/npc_onneks_se_lahti.wav-a7a667afb59cdeed0296a7feba59941b.sample"
+
+[deps]
+
+source_file="res://assets/npc/sounds/npc_onneks_se_lahti.wav"
+dest_files=[ "res://.import/npc_onneks_se_lahti.wav-a7a667afb59cdeed0296a7feba59941b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

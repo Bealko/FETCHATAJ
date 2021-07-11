@@ -25,7 +25,7 @@ margin_top = 32.0
 margin_right = 159.0
 margin_bottom = 56.0
 custom_fonts/font = SubResource( 2 )
-text = "[.twgSpik=up]"
+text = "[.twgSpik=down]"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -11,7 +11,12 @@ config_version=4
 [application]
 
 config/name="FETCHATAJ"
+run/main_scene="res://levels/mainmenu/MainMenuLevel.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerVariables="*res://autoload/PlayerVariables.tscn"
 
 [editor_plugins]
 

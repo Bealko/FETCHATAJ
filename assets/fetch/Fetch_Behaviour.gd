@@ -40,18 +40,18 @@ func _physics_process(delta) -> void:
 
 func _process(delta) -> void:
 	speed = speeds[speedIndex]
-	$Fetch_HUD/MovementModeIndicator/Indicator.rect_position = speedPositions[speedIndex]
-	$Fetch_HUD/BatteryBar/BatteryPercent.text = str(stepify(batteryLevel,0.1),"%")
-	$Fetch_HUD/BatteryBar.value = batteryLevel
-	
+	motorAudioPlayer.pitch_scale = speeds[speedIndex]/2
 
 	checkBatteryLevel()
-	
+	_updateHUD()
 	
 	if(velocity.length() > 1):
 		motorAudioPlayer.play()
 	elif(velocity.length() < 1):
 		motorAudioPlayer.stop()
+
+func get_position():
+	return global_transform.origin
 
 
 func checkBatteryLevel() -> void:
@@ -70,6 +70,15 @@ func checkBatteryLevel() -> void:
 	if batteryLevel > 25:
 		if indicationAudioPlayer.is_playing():
 			indicationAudioPlayer.stop()
+
+
+func _updateHUD():
+	$Fetch_HUD/MovementModeIndicator/Indicator.rect_position = speedPositions[speedIndex]
+	$Fetch_HUD/BatteryBar/BatteryPercent.text = str(stepify(batteryLevel,0.1),"%")
+	$Fetch_HUD/BatteryBar.value = batteryLevel
+	
+	$Fetch_HUD/StorageElement/terminalBlocks.text = str("[.comBlocks=",get_node("/root/PlayerVariables").components,"]")
+	$Fetch_HUD/StorageElement/lostTools.text = str("[.lostTools=",get_node("/root/PlayerVariables").tools,"]")
 
 
 
@@ -94,11 +103,11 @@ func get_input(delta) -> void:
 			
 		if Input.is_action_pressed("right"):
 			batteryLevel -= 0.01
-			rotate_y(-rot_speed * delta)
+			rotate_y(-speed / 2 * delta)
 			
 		if Input.is_action_pressed("left"):
 			batteryLevel -= 0.01
-			rotate_y(rot_speed * delta)
+			rotate_y(speed/ 2 * delta)
 			
 	velocity.y = vy
 

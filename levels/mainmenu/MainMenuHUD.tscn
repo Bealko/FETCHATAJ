@@ -24,10 +24,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-anchor_left = 0.104313
-anchor_top = 0.0936667
-anchor_right = 0.896172
-anchor_bottom = 0.226667
+anchor_left = 0.0886875
+anchor_top = 0.0803333
+anchor_right = 0.956719
+anchor_bottom = 0.253333
 margin_left = -34.816
 margin_top = -0.200005
 margin_right = 38.3199
@@ -35,8 +35,8 @@ rect_scale = Vector2( 0.92, 1 )
 rect_pivot_offset = Vector2( 434.783, 40 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "[shake rate=10 level=10][color=aqua]FETCH[/color] ME IF YOU CAN[/shake]"
-text = "FETCH ME IF YOU CAN"
+bbcode_text = "[shake rate=10 level=10][color=aqua][FETCH][/color] ME IF YOU CAN[/shake]"
+text = "[FETCH] ME IF YOU CAN"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": true
@@ -87,8 +87,9 @@ anchor_top = 0.8
 anchor_right = 0.437
 anchor_bottom = 0.907
 margin_left = 0.511997
+margin_top = -8.0
 margin_right = 0.511993
-margin_bottom = -0.200012
+margin_bottom = -8.20001
 custom_styles/hover = ExtResource( 5 )
 custom_styles/normal = ExtResource( 4 )
 custom_fonts/font = ExtResource( 1 )

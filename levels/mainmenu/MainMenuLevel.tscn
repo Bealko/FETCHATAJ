@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/mainmenu/MainMenuHUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/mainmenu/MainMenuRoom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/cart/Cart_Object.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/npc/MikkoStatic.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 1, 1, 1, 1 )
@@ -50,8 +51,11 @@ shadow_enabled = true
 shadow_reverse_cull_face = true
 spot_range = 8.1
 
+[node name="MikkoStatic" parent="MainMenuRoomModel" instance=ExtResource( 4 )]
+transform = Transform( -0.332507, 0, -0.943101, 0, 1, 0, 0.943101, 0, -0.332507, 0.645506, -0.0311074, -0.506779 )
+
 [node name="MainMenuHUD" parent="." instance=ExtResource( 1 )]
 self_modulate = Color( 1, 1, 1, 0.313726 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.945177, 0.0316906, -0.325017, 0, 0.99528, 0.0970444, 0.326558, -0.0917242, 0.940716, -2.11503, 3.17028, 4.90037 )
+transform = Transform( 0.945177, 0.0316906, -0.325017, 0, 0.99528, 0.0970444, 0.326558, -0.0917242, 0.940716, -1.74021, 3.05837, 3.81551 )
