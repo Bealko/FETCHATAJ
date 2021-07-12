@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/mainmenu/MainMenuFont_2.tres" type="DynamicFont" id=1]
 [ext_resource path="res://levels/mainmenu/MainMenu_Behaviour.gd" type="Script" id=2]
 [ext_resource path="res://levels/mainmenu/Main Menu Loop.wav" type="AudioStream" id=3]
 [ext_resource path="res://levels/mainmenu/StyleboxMenu.tres" type="StyleBox" id=4]
 [ext_resource path="res://levels/mainmenu/StyleboxMenuHover.tres" type="StyleBox" id=5]
+[ext_resource path="res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/fonts/xolonium/xolonium-fonts-4.1/ttf/Xolonium-Regular.ttf"
@@ -14,6 +15,12 @@ size = 70
 outline_size = 5
 outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
 
 [node name="MainMenuHUD" type="Control"]
 anchor_right = 1.0
@@ -96,6 +103,20 @@ custom_fonts/font = ExtResource( 1 )
 text = "EXIT GAME"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.00033
+margin_left = -176.0
+margin_top = -30.0
+margin_bottom = -0.200012
+custom_fonts/font = SubResource( 3 )
+text = "Version 0.0.1"
+__meta__ = {
+"_edit_use_anchors_": true
 }
 
 [connection signal="pressed" from="NewGame_Button" to="." method="_on_NewGame_Button_pressed"]

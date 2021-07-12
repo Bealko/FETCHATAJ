@@ -34,8 +34,11 @@ func _physics_process(delta) -> void:
 		if direction.length() < 1:
 			path_node += 1
 		else:
-			look_at(2 * global_transform.origin - target.global_transform.origin,Vector3.UP)
+			look_at(2 * global_transform.origin - Vector3(path[path_node].x,0,path[path_node].z),Vector3.UP)
 			velocity = move_and_slide(direction.normalized() * speed,Vector3.UP)
+	
+	rotation_degrees.x = 0
+	rotation_degrees.z = 0
 	
 	
 	if global_transform.origin.distance_to(target.global_transform.origin) <= 1:
@@ -44,14 +47,26 @@ func _physics_process(delta) -> void:
 	elif global_transform.origin.distance_to(target.global_transform.origin) > 1:
 		attack = false
 		$AnimationTree["parameters/conditions/kick"] = false
-	if(velocity.length() > 1):
-		$AnimationTree.set("parameters/velocity/blend_amount",1)
+	
+	$AnimationTree.set("parameters/movement/speed/blend_amount",velocity.normalized().length())
+
 	
 	if(attack && $attackTimer.is_stopped()):
+		print("Attack Timer start.")
 		$attackTimer.start()
 	elif(!attack && !$attackTimer.is_stopped()):
-		print("Timer stop.")
+		print("Attack Timer stop.")
 		$attackTimer.stop()
+	
+	if(is_angry && $Timer.is_stopped()):
+		print("Navigation Timer start.")
+		$Timer.start()
+	elif(!is_angry && !$Timer.is_stopped()):
+		print("Navigation Timer stop.")
+		$Timer.stop()
+		path_node = 0
+		
+	
 	
 	if global_transform.origin.distance_to(target.global_transform.origin) <= 10 && !is_angry:
 		$AudioStreamPlayer.stream = sound_angry
@@ -74,6 +89,7 @@ func move_to(target_position):
 
 func _on_Timer_timeout():
 	move_to(target.global_transform.origin)
+	pass
 
 
 	

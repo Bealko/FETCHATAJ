@@ -1053,6 +1053,9 @@ tracks/30/keys = PoolRealArray( 0, 1, 0.07477, 0.191873, -0.0107849, 0, 0, 0, 1,
 radius = 0.318386
 height = 1.21003
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "kick_anim"
+
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "idle_anim"
 
@@ -1071,9 +1074,6 @@ nodes/walk/node = SubResource( 13 )
 nodes/walk/position = Vector2( -480, 280 )
 node_connections = [ "speed", 0, "idle", "speed", 1, "walk", "output", 0, "speed" ]
 
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "kick_anim"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 advance_condition = "kick"
 
@@ -1082,12 +1082,12 @@ switch_mode = 2
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=18]
-states/Movement/node = SubResource( 14 )
-states/Movement/position = Vector2( 28, 85 )
 states/kick_anim/node = SubResource( 15 )
 states/kick_anim/position = Vector2( 319, 89 )
-transitions = [ "Movement", "kick_anim", SubResource( 16 ), "kick_anim", "Movement", SubResource( 17 ) ]
-start_node = "Movement"
+states/movement/node = SubResource( 14 )
+states/movement/position = Vector2( 28, 85 )
+transitions = [ "movement", "kick_anim", SubResource( 16 ), "kick_anim", "movement", SubResource( 17 ) ]
+start_node = "movement"
 graph_offset = Vector2( -421, -1 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=19]
@@ -1285,8 +1285,6 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.88
 shape = SubResource( 10 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 18 )
@@ -1294,7 +1292,7 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 19 )
 parameters/conditions/kick = false
-parameters/Movement/speed/blend_amount = 1.0
+parameters/movement/speed/blend_amount = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

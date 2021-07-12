@@ -14,6 +14,7 @@ func _ready():
 
 
 func _on_NewGame_Button_pressed():
+	get_node("/root/PlayerVariables").call("reset")
 	self.call_deferred("free")
 	get_tree().change_scene("res://levels/hall/HallLevel.tscn")
 

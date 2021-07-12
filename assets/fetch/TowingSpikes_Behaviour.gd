@@ -17,6 +17,7 @@ func _process(delta):
 				#attachedBody.linear_velocity = fetchPosToMove.normalized() * 8
 				attachedBody.transform.origin.x = get_parent().transform.origin.x
 				attachedBody.transform.origin.z = get_parent().transform.origin.z	
+				attachedBody.transform.origin.y = get_parent().transform.origin.y + 0.1
 				attachedBody.rotation.y = get_parent().rotation.y
 				attachedBody.get_node("Base_Collider").disabled = false
 	

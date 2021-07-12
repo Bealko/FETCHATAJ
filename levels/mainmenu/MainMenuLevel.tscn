@@ -47,6 +47,7 @@ script = null
 
 [node name="SpotLight" type="SpotLight" parent="MainMenuRoomModel"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.04954, 0 )
+light_bake_mode = 2
 shadow_enabled = true
 shadow_reverse_cull_face = true
 spot_range = 8.1
