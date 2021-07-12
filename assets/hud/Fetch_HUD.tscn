@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/hud/BatteryBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/hud/MovementModeIndicator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/hud/StorageElement.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/hud/PartStatus.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/hud/InternalDamage.tscn" type="PackedScene" id=5]
 
 [node name="Fetch_HUD" type="Control"]
 anchor_right = 1.0
@@ -24,11 +25,20 @@ margin_top = -0.200012
 margin_right = 0.447998
 margin_bottom = 6.10352e-05
 
+[node name="InternalDamage" parent="." instance=ExtResource( 5 )]
+anchor_left = 0.0234375
+anchor_top = 0.8
+anchor_right = 0.273438
+anchor_bottom = 0.853333
+
 [node name="MovementModeIndicator" parent="." instance=ExtResource( 2 )]
-anchor_left = 0.015875
-anchor_top = 0.626333
+anchor_left = 0.016
+anchor_top = 0.520333
 anchor_right = 0.325875
-anchor_bottom = 0.680333
+anchor_bottom = 0.573333
+margin_left = -0.384001
+margin_top = -0.200012
+margin_bottom = -3.05176e-05
 text = "[.motors.mode]"
 
 [node name="StorageElement" parent="." instance=ExtResource( 3 )]

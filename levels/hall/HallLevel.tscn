@@ -5,11 +5,11 @@
 [ext_resource path="res://assets/cart/Cart_Object.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/items/component/Collectable_Component.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/items/charger/FetchChargerObject.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/npc/Mikko_NPC_GameObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/npc/assembler/Assembler_NPC_GameObject.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/hall/Hall_NavigationMesh.tres" type="NavigationMesh" id=7]
 [ext_resource path="res://assets/items/big_storage/big_storage_GameObject.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/items/knipex/Knipex_GameObject.tscn" type="PackedScene" id=9]
-[ext_resource path="res://assets/items/knipex/Collectable_Knipex_Behaviour.gd" type="Script" id=10]
+[ext_resource path="res://assets/npc/engineer/Engineer.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Environment" id=1]
 fog_color = Color( 1, 1, 1, 1 )
@@ -215,10 +215,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4953, 0.76247, 0 )
 mass = 25.0
 
 [node name="FetchCharger" parent="." instance=ExtResource( 5 )]
-transform = Transform( 0.0369053, 0, 0.999319, 0, 1, 0, -0.999319, 0, 0.0369053, 0.78002, 0.0623397, -10.2473 )
+transform = Transform( 0.0369053, 0, 0.999319, 0, 1, 0, -0.999319, 0, 0.0369053, 0.78002, 0.0356598, -10.2186 )
 
-[node name="Mikko_NPC" parent="." instance=ExtResource( 6 )]
+[node name="FetchCharger2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 0.0369053, 0, 0.999319, 0, 1, 0, -0.999319, 0, 0.0369053, 0.78002, 0.0309732, -33.6817 )
+
+[node name="Assembler_NPC" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.31062, 0.11288, -49.4179 )
+
+[node name="Engineer" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6645, 0.0611445, -18.3064 )
 
 [node name="Collectables" type="Node" parent="."]
 
@@ -276,4 +282,3 @@ transform = Transform( -0.984235, -0.00963351, -0.176602, -0.00779598, 0.999908,
 
 [node name="Knipex_GameObject" parent="Collectables/Tools" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5859, 1.49464, -64.1237 )
-script = ExtResource( 10 )

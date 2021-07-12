@@ -3,7 +3,7 @@
 [ext_resource path="res://levels/mainmenu/MainMenuHUD.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/mainmenu/MainMenuRoom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/cart/Cart_Object.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/npc/MikkoStatic.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/npc/assembler/AssemblerStatic.tscn" type="PackedScene" id=4]
 
 [sub_resource type="ProceduralSky" id=1]
 sky_top_color = Color( 1, 1, 1, 1 )

@@ -23,4 +23,4 @@ func _on_ChargingArea_body_exited(body):
 
 func _process(delta):
 	if fetchIsCharging:
-		fetchObject.batteryLevel += 5* delta
+		get_node("/root/PlayerVariables").batteryLevel += 5* delta

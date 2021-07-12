@@ -13,7 +13,6 @@ var speedIndex = 0
 var speed : float = 0
 export var rot_speed = 0.85
 
-export var batteryLevel : float = 100.0
 
 
 export var isOccupied : bool = false
@@ -28,7 +27,6 @@ onready var lowBatterySound = preload("res://assets/fetch/sound/low_battery.wav"
 
 
 func _ready() -> void:
-	
 	fetchHud = $Fetch_HUD
 
 
@@ -39,11 +37,13 @@ func _physics_process(delta) -> void:
 	velocity = move_and_slide(velocity, Vector3.UP)
 
 func _process(delta) -> void:
+	
+	
 	speed = speeds[speedIndex]
 	motorAudioPlayer.pitch_scale = speeds[speedIndex]/2
 
 	checkBatteryLevel()
-	_updateHUD()
+	updateHUD()
 	
 	if(velocity.length() > 1):
 		motorAudioPlayer.play()
@@ -56,29 +56,34 @@ func get_position():
 
 func checkBatteryLevel() -> void:
 	
-	if batteryLevel >= 100:
-		batteryLevel = 100
+	if get_node("/root/PlayerVariables").batteryLevel >= 100:
+		get_node("/root/PlayerVariables").batteryLevel = 100
 	
-	if batteryLevel <= 0:
+	if get_node("/root/PlayerVariables").batteryLevel <= 0 || get_node("/root/PlayerVariables").damage >= 100:
 		self.call_deferred("free")
 		get_tree().change_scene("res://assets/hud/GameOverHUD.tscn")
 	
-	if batteryLevel < 25:
+	if get_node("/root/PlayerVariables").batteryLevel < 25:
 		if !indicationAudioPlayer.is_playing():
 			indicationAudioPlayer.stream = lowBatterySound
 			indicationAudioPlayer.play()
-	if batteryLevel > 25:
+	if get_node("/root/PlayerVariables").batteryLevel > 25:
 		if indicationAudioPlayer.is_playing():
 			indicationAudioPlayer.stop()
 
 
-func _updateHUD():
+func updateHUD():
 	$Fetch_HUD/MovementModeIndicator/Indicator.rect_position = speedPositions[speedIndex]
-	$Fetch_HUD/BatteryBar/BatteryPercent.text = str(stepify(batteryLevel,0.1),"%")
-	$Fetch_HUD/BatteryBar.value = batteryLevel
+	$Fetch_HUD/BatteryBar/BatteryPercent.text = str(stepify(get_node("/root/PlayerVariables").batteryLevel, 0.1),"%")
+	$Fetch_HUD/BatteryBar.value = get_node("/root/PlayerVariables").batteryLevel
+	$Fetch_HUD/InternalDamage/DamagePercent.text = str(stepify(get_node("/root/PlayerVariables").damage, 0.1),"%")
+	$Fetch_HUD/InternalDamage.value = get_node("/root/PlayerVariables").damage
+	
 	
 	$Fetch_HUD/StorageElement/terminalBlocks.text = str("[.comBlocks=",get_node("/root/PlayerVariables").components,"]")
 	$Fetch_HUD/StorageElement/lostTools.text = str("[.lostTools=",get_node("/root/PlayerVariables").tools,"]")
+
+
 
 
 
@@ -92,21 +97,21 @@ func get_input(delta) -> void:
 	if Input.is_action_just_pressed("decrease_speed") && speedIndex > 0:
 		speedIndex -= 1
 	
-	if(batteryLevel >= 0):
+	if(get_node("/root/PlayerVariables").batteryLevel >= 0):
 		if Input.is_action_pressed("forward"):
 			velocity += -transform.basis.z * speed
-			batteryLevel -= drainSpeeds[speedIndex]
+			get_node("/root/PlayerVariables").batteryLevel -= drainSpeeds[speedIndex]
 			
 		if Input.is_action_pressed("back"):
 			velocity += transform.basis.z * speed
-			batteryLevel -= drainSpeeds[speedIndex]
+			get_node("/root/PlayerVariables").batteryLevel -= drainSpeeds[speedIndex]
 			
 		if Input.is_action_pressed("right"):
-			batteryLevel -= 0.01
+			get_node("/root/PlayerVariables").batteryLevel -= 0.01
 			rotate_y(-speed / 2 * delta)
 			
 		if Input.is_action_pressed("left"):
-			batteryLevel -= 0.01
+			get_node("/root/PlayerVariables").batteryLevel -= 0.01
 			rotate_y(speed/ 2 * delta)
 			
 	velocity.y = vy
